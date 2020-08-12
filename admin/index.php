@@ -21,7 +21,7 @@ session_start();
 	<div class="col-md-9 content" style="margin-left:10px">
   	<div class="panel panel-default">
 	<div class="panel-heading" style="background-color:#c4e17f">
-	<h1>Welcome  </h1></div><br>
+	<h1>Welcome to Admin Dashboard</h1></div><br>
 	<div class="panel-body">
 		<h3>
 <?php  //success message

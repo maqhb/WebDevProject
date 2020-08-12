@@ -41,6 +41,7 @@ $(document).ready(function(){
 			data	:	{brand:1},
 			success	:	function(data){
 				$("#get_brand").html(data);
+				
 			}
 		})
 	}
@@ -53,6 +54,8 @@ $(document).ready(function(){
 			data	:	{getProduct:1,prodNo:prodNo},
 			success	:	function(data){
 				$("#get_product").html(data);
+				$('#showing').html(null);
+				$("#pageno").html(null);
 			}
 		})
 	}
@@ -141,6 +144,7 @@ $(document).ready(function(){
 			data	:	{get_seleted_Category:1,cat_id:cid},
 			success	:	function(data){
 				$("#get_product").html(data);
+				$("#pageno").html(null);
 				if($("body").width() < 480){
 					$("body").scrollTop(683);
 				}
@@ -184,6 +188,7 @@ $(document).ready(function(){
 				if($("body").width() < 480){
 					$("body").scrollTop(683);
 				}
+				$("#pageno").html(null);
 			}
 		})
 	
@@ -206,8 +211,11 @@ $(document).ready(function(){
 			data	:	{search:1,keyword:keyword,cat:cat},
 			success	:	function(data){
 			if(window.location.href.includes('store')){
-				$('#get_product').html(data);
-				$('#showing').html('<p>Showing 20-100 products</p>');
+				var result = $.parseJSON(data);
+				$('#get_product').html(result[0]);
+				var count = result[1];
+				$('#showing').html('<p>Showing '+count+' products</p>');
+				$("#pageno").html(null);
 				if($("body").width() < 480){
 					$("body").scrollTop(683);
 				}	
@@ -229,7 +237,9 @@ $(document).ready(function(){
 
 	
 		
-		
+	$("#ahaa").on('click', function(){
+		$('#Modal_register').modal('hide');
+	})
 
 
 	$('#searchModal').on('shown.bs.modal', function () {
@@ -469,10 +479,11 @@ $(document).ready(function(){
 
 	page();
 	function page(){
+		var d = {page:1};		
 		$.ajax({
 			url	:	"action.php",
 			method	:	"POST",
-			data	:	{page:1},
+			data	:	d,
 			success	:	function(data){
 				$("#pageno").html(data);
 			}

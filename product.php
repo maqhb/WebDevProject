@@ -57,12 +57,12 @@ include "homeHead.php";
 					
 					<?php 
 								include 'db.php';
+								require_once('getProducts.php');
+
 								$product_id = $_GET['p'];
-								// $sql = " SELECT * FROM products ";
+								
 								$sql = " SELECT * FROM products WHERE product_id = $product_id";
-								// if (!$con) {
-								// 	die("Connection failed: " . mysqli_connect_error());
-								// }
+								
 								$result = mysqli_query($con, $sql);
 								if (mysqli_num_rows($result) > 0) 
 								{
@@ -77,55 +77,10 @@ include "homeHead.php";
                         		$pro_image = $row['product_image'];
 								$orig = $pro_price+$pro_price*0.3;
 
-									echo '
-									
-                                    
-                                
-                                <div class="col-md-5 col-md-push-2">
-                                <div id="product-main-img">
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'" alt="">
-                                    </div>
-
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'" alt="">
-                                    </div>
-
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'" alt="">
-                                    </div>
-
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                                
-                                <div class="col-md-2  col-md-pull-5">
-                                <div id="product-imgs">
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'" alt="">
-                                    </div>
-
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'" alt="">
-                                    </div>
-
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'g" alt="">
-                                    </div>
-
-                                    <div class="product-preview">
-                                        <img src="product_images/'.$pro_image.'" alt="">
-                                    </div>
-                                </div>
-                            </div>
-
-                                 
-									';
+									showProduct($pro_id,$pro_cat,$pro_brand,$pro_title,$pro_price,$pro_image,$orig);
                                     
 									?>
-									<!-- FlexSlider -->
+									
 									
 									<?php 
 									echo '
@@ -146,7 +101,7 @@ include "homeHead.php";
 								<a class="review-link" href="#review-form">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">PKR'.$orig.'<del class="product-old-price">PKR'.$pro_price.'</del></h3>
+								<h3 class="product-price">PKR'.$pro_price.'<del class="product-old-price">PKR'.$orig.'</del></h3>
 								<span class="product-available">In Stock</span>
 							</div>
 							<p>'.$row['product_desc'].'</p>

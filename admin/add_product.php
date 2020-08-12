@@ -24,10 +24,10 @@ if($picture_type=="image/jpeg" || $picture_type=="image/jpg" || $picture_type=="
 {
 	if($picture_size<=50000000)
 	
-		$pic_name=time()."_".$picture_name;
+		$pic_name=$picture_name;
 		move_uploaded_file($picture_tmp_name,"../product_images/".$pic_name);
 		
-mysqli_query($con,"insert into products (product_cat, product_brand,product_title,product_price, product_desc, product_image,product_keywords) values ('$product_type','$brand','$product_name','$price','$details','$pic_name','$tags')") or die ("query incorrect");
+mysqli_query($con,"insert into products (product_id,product_cat, product_brand,product_title,product_price, product_desc, product_image,product_keywords) values (NULL,'$product_type','$brand','$product_name','$price','$details','$pic_name','$tags')") or die ("query incorrect");
 
  header("location: sumit_form.php?success=1");
 }
@@ -83,19 +83,19 @@ mysqli_close($con);
         <div class="well">
 <h3>Category</h3>  
 <p>Product type</p>
-<input type="number" name="product_type" id="product_type" class="form-control" placeholder="1 electronic,2 Ladies Wears,3 Mens Wear">
+<input type="number" name="product_type" id="product_type" class="form-control" placeholder="1 Mobiles,2 iPad,3 Laptops,4 Headphones ">
 <br>
 <p>Vendor / Brand</p>
-<input type="number" name="brand" id="brand" class="form-control" placeholder="1 HP,2 Samsung,3 Apple,4 motorolla">
+<input type="number" name="brand" id="brand" class="form-control" placeholder="1 HP,2 Samsung,3 Apple,4 SONY">
 <br>
 <p>Other tags</p>
-<input type="text" name="tags" id="tags" class="form-control" placeholder="Summer, Soft, Cotton etc">
+<input type="text" name="tags" id="tags" class="form-control" placeholder="Mobile,Samsung,S10+ etc">
 </div>          
 </div>
 
 <div align="center">
     <button type="submit" name="submit" id="submit" class="btn btn-default" style="width:100px; height:60px"> Cancel</button>
-    <button type="submit" name="submit" id="submit" class="btn btn-success" style="width:150px; height:60px""> Add Product</button>
+    <button type="submit" name="submit" id="submit" class="btn btn-success" style="width:150px; height:60px"> Add Product</button>
     </div>
         </form>
  

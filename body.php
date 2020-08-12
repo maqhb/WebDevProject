@@ -7,21 +7,21 @@
     <div class="carousel-inner">
 
       <div class="item active">
-        <img class="cr-item" src="img/banner3.png" alt="iPhone" >
+		<img class="cr-item" src="img/banner3.png" style="width:100% !important"  alt="iPhone" >
         
       </div>
 
       <div class="item">
-        <img class="cr-item" src="img/banner2.png" alt="S9" >
+        <img class="cr-item" src="img/banner2.png" style="width:100% !important" alt="S9" >
         
       </div>
     
       <div class="item">
-        <img class="cr-item" src="img/banner4.png" alt="Huawei Nove 3i">
+        <img class="cr-item" src="img/banner4.png" style="width:100% !important" alt="Huawei Nove 3i">
         
       </div>
       <div class="item">
-        <img class="cr-item" src="img/banner1.png" alt="S10 plus" >
+        <img class="cr-item" src="img/banner1.png" style="width:100% !important" alt="S10 plus" >
         
       </div>
   
@@ -133,7 +133,7 @@
 									
 									<?php
                     include 'db.php';
-								
+					require_once('getProducts.php');
                     
 					$product_query = "SELECT * FROM products,categories WHERE product_cat=cat_id AND product_id BETWEEN 1 AND 75";
                 $run_query = mysqli_query($con,$product_query);
@@ -148,38 +148,8 @@
                         $pro_image = $row['product_image'];
 
                         $cat_name = $row["cat_title"];
-						$discount = $pro_price*0.7;
-                        echo "
-								<div class='product'>
-									<a href='product.php?p=$pro_id'><div class='product-img'>
-										<img src='product_images/$pro_image' style='max-height: 100%;min-height:300px;object-fit: cover;' alt=''>
-										<div class='product-label'>
-											<span class='sale'>-30%</span>
-											<span class='new'>NEW</span>
-										</div>
-									</div></a>
-									<div class='product-body'>
-										<p class='product-category'>$cat_name</p>
-										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$$discount<del class='product-old-price'>$$pro_price</del></h4>
-										<div class='product-rating'>
-											<i class='fa fa-star'></i>
-											<i class='fa fa-star'></i>
-											<i class='fa fa-star'></i>
-											<i class='fa fa-star'></i>
-											<i class='fa fa-star'></i>
-										</div>
-										<div class='product-btns'>
-											<button class='add-to-wishlist'><i class='fa fa-heart-o'></i><span class='tooltipp'>add to wishlist</span></button>
-											<button class='add-to-compare'><i class='fa fa-exchange'></i><span class='tooltipp'>add to compare</span></button>
-											<button class='quick-view'><i class='fa fa-eye'></i><span class='tooltipp'>quick view</span></button>
-										</div>
-									</div>
-									<div class='add-to-cart'>
-										<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
-									</div>
-								</div>
-			";
+						$orig = $pro_price+$pro_price*0.3;
+						getProducts($pro_id,$pro_cat,$pro_brand,$pro_title,$pro_price,$pro_image,$orig,$cat_name);
 		}
         ;
       

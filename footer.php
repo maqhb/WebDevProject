@@ -6,10 +6,10 @@
 					<!-- row -->
 					<div class="row">
 						<div class="col-md-3 col-xs-6">
-							<div class="footer">
+							<!-- <div class="footer">
 								<h3 class="footer-title">About Us</h3>
 								<h4>Web Development Project </h4>
-							</div>
+							</div> -->
 						</div>
 						<div class="col-md-6 text-center" style="margin-top:80px;">
 							<ul class="footer-payments">
@@ -26,7 +26,7 @@
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
 						</div>
-
+<!-- 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Categories</h3>
@@ -37,7 +37,7 @@
 									<li><a href="#">Accessories</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="clearfix visible-xs"></div>
 
@@ -57,7 +57,6 @@
 		<script src="./js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/actions.js"></script>

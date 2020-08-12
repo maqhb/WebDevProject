@@ -19,6 +19,7 @@ session_start();
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link type="text/css" rel="stylesheet" href="css/style.css"/>
 		<link type="text/css" rel="stylesheet" href="css/accountbtn.css"/>
+		<link rel="icon" type="image/jpg" href="favicon.jpg">
     <style>
 		
 
@@ -127,18 +128,10 @@ session_start();
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="header-search">
+							<div class="header-search" >
 								<form>
-									<select class="input-select">
-										<option value="0">All Categories</option>
-										<option value="1">Mobiles</option>
-										<option value="1">Laptops </option>
-									</select>
-									<input class="input" id="search" type="text" placeholder="Search here">
-									<button type="submit" id="search_btn" data-toggle="modal" data-target="#searchModal" class="search-btn">Search</button>
-																	 
-        
-		
+									<input style="border-radius: 15px;width: 80%" class="input" id="search" type="text" placeholder="Search here">
+									<button type="submit" style="margin-left: -5%" id="search_btn" data-toggle="modal" data-target="#searchModal" class="search-btn">Search</button>
 								</form>
 							</div>
 						</div>
