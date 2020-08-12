@@ -203,18 +203,15 @@ $(document).ready(function(){
 		event.preventDefault();
 		$("#get_product").html("<h3>Loading...</h3>");
 		var keyword = $("#search").val();
-		var cat = $("#category option:selected").val();			
+		var cat = $("#category option:selected").val();	
 		if(keyword != ""){
 			$.ajax({
 			url		:	"action.php",
 			method	:	"POST",
 			data	:	{search:1,keyword:keyword,cat:cat},
 			success	:	function(data){
-			if(window.location.href.includes('store')){
-				var result = $.parseJSON(data);
-				$('#get_product').html(result[0]);
-				var count = result[1];
-				$('#showing').html('<p>Showing '+count+' products</p>');
+			if(window.location.href.includes("store")){	
+				$('#get_product').html(data);
 				$("#pageno").html(null);
 				if($("body").width() < 480){
 					$("body").scrollTop(683);

@@ -143,7 +143,6 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 		$sql = "SELECT * FROM products,categories WHERE product_brand = '$id' AND product_cat=cat_id";
 	}else {
 		$keyword = $_POST["keyword"];
-		// header('Location: store.php');
 		$sql = "SELECT * FROM products,categories WHERE product_cat=cat_id AND product_keywords LIKE '%$keyword%'";		
 	}
 }
@@ -161,11 +160,8 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 			$orig = $pro_price+$pro_price*0.3;
 			$html.= getProducts($pro_id,$pro_cat,$pro_brand,$pro_title,$pro_price,$pro_image,$orig,$cat_name);
 		}
-		if(isset($_POST["search"])){
-			echo json_encode(array($html, $count));
-		}else{
-			echo $html;
-		}
+		
+		echo $html;
 	}
 	
 

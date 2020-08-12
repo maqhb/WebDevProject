@@ -88,7 +88,7 @@ include 'header.php';
 						<div class="col-md-12 col-xs-12" id="product_msg">
 					</div>
 							<!-- product -->
-							<div id="get_product">
+							<div style="margin-top:5%" id="get_product">
 							
 						</div>
 					<!-- STORE -->
@@ -100,7 +100,7 @@ include 'header.php';
 
 						<!-- store bottom filter -->
 						<div class="store-filter clearfix">
-							<span class="store-qty" id="showing"></span>
+							
 							<ul class="store-pagination" id="pageno">
 								<li ><a class="active" href="#aside">1</a></li>
 								

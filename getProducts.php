@@ -50,8 +50,8 @@ echo '
 
 
 function getProducts($pro_id,$pro_cat,$pro_brand,$pro_title,$pro_price,$pro_image,$orig,$cat_name){
-  echo  "
-						<div class='col-md-4 col-xs-6'>
+echo "
+    	<div class='col-md-4 col-xs-6'>
 								<a href='product.php?p=$pro_id'><div class='product'>
 									<div class='product-img'>
 										<img  src='product_images/$pro_image'  style='max-height: 250px;min-height:250px;object-fit: cover;' alt=''>
@@ -82,6 +82,6 @@ function getProducts($pro_id,$pro_cat,$pro_brand,$pro_title,$pro_price,$pro_imag
 									</div>
 								</div>
 							</div>
-			";
+";
 }
                                         ?>
