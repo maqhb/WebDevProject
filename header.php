@@ -118,7 +118,7 @@ session_start();
 							<div class="header-logo">
 								<a href="#" class="logo">
 								<font style="font-style:normal; font-size: 35px;color: aliceblue;font-family: fantasy;color: white;font-variant: petite-caps;">
-                                        Web Development
+								Shopaholic
                                     </font>
 								</a>
 							</div>

@@ -57,14 +57,14 @@ include "topheader.php";
                     <tbody>
                       <?php 
 
-                        $result=mysqli_query($con,"select product_id,product_image, product_title,product_price from products  where  product_cat=2 or product_cat=3 or product_cat=4 Limit $page1,12")or die ("query 1 incorrect.....");
+                        $result=mysqli_query($con,"select product_id,product_image, product_title,product_price from products Limit $page1,12")or die ("query 1 incorrect.....");
 
                         while(list($product_id,$image,$product_name,$price)=mysqli_fetch_array($result))
                         {
                         echo "<tr><td><img src='../../product_images/$image' style='width:50px; height:50px; border:groove #000'></td><td>$product_name</td>
                         <td>$price</td>
                         <td>
-                        <a class=' btn btn-success' href='clothes_list.php?product_id=$product_id&action=delete'>Delete</a>
+                        <a class=' btn btn-success' href='products_list.php?product_id=$product_id&action=delete'>Delete</a>
                         </td></tr>";
                         }
 

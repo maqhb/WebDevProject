@@ -387,7 +387,7 @@ $(document).ready(function(){
 		$('.total').each(function(){
 			net_total += ($(this).val()-0);
 		})
-		$('.net_total').html("Total : $ " +net_total);
+		$('.net_total').html("Total : Rs  " +net_total);
 
 	})
 	//Change Quantity end here 
@@ -469,7 +469,7 @@ $(document).ready(function(){
 		$('.total').each(function(){
 			net_total += ($(this).val()-0);
 		})
-		$('.net_total').html("Total : $ " +net_total);
+		$('.net_total').html("Total : Rs " +net_total);
 	}
 
 	//remove product from cart
